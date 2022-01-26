@@ -57,7 +57,7 @@ def op23(f):
 # Helpers
 
 def _length(a):
-    return np.linalg.norm(a, axis=1)
+    return np.linalg.norm(a)
 
 def _normalize(a):
     return a / np.linalg.norm(a)
@@ -110,7 +110,7 @@ def rectangle(size=1, center=ORIGIN, a=None, b=None):
     size = np.array(size)
     def f(p):
         q = np.abs(p - center) - size / 2
-        return _length(_max(q, 0)) + _min(np.amax(q, axis=1), 0)
+        return _length(_max(q, 0)) + _min(np.amax(q), 0)
     return f
 
 @sdf2
